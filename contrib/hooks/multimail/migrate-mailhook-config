@@ -114,7 +114,7 @@ def is_section_empty(section, local):
             + local_option
             + ['--get-regexp', '^%s\.' % (section,)]
             )
-    except CommandError, e:
+    except CommandError as e:
         if e.retcode == 1:
             # This means that no settings were found.
             return True
