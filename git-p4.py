@@ -27,7 +27,7 @@ import zlib
 import ctypes
 import errno
 
-# support basestring in python3
+# support basestring and raw_input in python3
 try:
     unicode = unicode
 except NameError:
@@ -36,12 +36,14 @@ except NameError:
     unicode = str
     bytes = bytes
     basestring = (str,bytes)
+    raw_input = input
 else:
     # 'unicode' exists, must be Python 2
     str = str
     unicode = unicode
     bytes = str
     basestring = basestring
+    raw_input = raw_input
 
 try:
     from subprocess import CalledProcessError
